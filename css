@@ -1,0 +1,639 @@
+/* ==========================================
+   GUSTAVO FURLAN — PORTFÓLIO
+   Design / Fotografia / Audiovisual
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ---------- VARIÁVEIS DE DESIGN ---------- */
+
+:root {
+    --primary-blue: #0f4cf5;      /* Azul Royal vibrante dos bicos/cards do Figma */
+    --bg-light: #f4f5f8;          /* Fundo off-white limpo */
+    --text-dark: #121212;         /* Cor principal dos textos */
+    --text-muted: #6e7485;        /* Subtextos e labels secundárias */
+    --white: #ffffff;
+    --line: rgba(0, 0, 0, 0.08);
+
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* ---------- NAVBAR / HEADER ---------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    background: rgba(244, 245, 248, 0.95);
+    backdrop-filter: blur(10px);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+.location {
+    color: var(--text-muted);
+}
+
+/* ---------- HERO SECTION ---------- */
+
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+}
+
+.hero-left-card {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-tag, 
+.hero-subtag {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+/* ---------- HERO RIGHT CARD & CRÉDITO ---------- */
+
+.hero-right-card {
+    position: relative; /* Necessário para ancorar a tag interna */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-right-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tag de crédito no canto inferior direito */
+.photo-credit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--white);
+    color: var(--text-dark);
+    padding: 8px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    z-index: 2;
+    border-top-left-radius: 0px; /* Mantém o padrão de cantos secos do layout */
+}
+/* ---------- SOBRE ---------- */
+
+.about-section {
+    padding: 100px 48px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: start;
+}
+
+.section-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 1px;
+}
+
+.about-text p {
+    font-size: clamp(28px, 4vw, 54px);
+    font-weight: 600;
+    color: var(--primary-blue);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    max-width: 1100px;
+}
+
+/* ---------- BANNER DE PROJETOS ---------- */
+
+.banner-blue {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 120px 48px;
+    text-align: center;
+}
+
+.section-label-light {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 24px;
+    opacity: 0.8;
+}
+
+.banner-blue h2 {
+    font-size: clamp(40px, 6vw, 84px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+/* ==========================================================================
+   CARDS DE PROJETOS (ALINHAMENTO EM COLUNAS)
+   ========================================================================== */
+
+.projects-container {
+    padding: 80px 48px;
+}
+
+/* O card principal divide o espaço entre a coluna da esquerda e a da direita */
+.project-card {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* 320px para textos da esquerda, o restante para a foto */
+    gap: 40px;
+    margin-bottom: 120px;
+    align-items: start;
+}
+
+/* Coluna da Esquerda: Empurra os detalhes para a parte inferior */
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%; /* Garante que os detalhes fiquem alinhados abaixo da foto */
+}
+
+.project-title {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-top: 40px; /* Garante o alinhamento na altura da descrição */
+}
+
+/* Coluna da Direita: Foto e Rodapé */
+.project-media {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-media img {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    display: block;
+}
+
+.media-footer {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.image-index {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.project-description {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* Ajuste Responsivo para Celular */
+@media (max-width: 900px) {
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 64px;
+    }
+
+    .project-details {
+        margin-top: 12px;
+    }
+
+    .media-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* ---------- CONTATO ---------- */
+
+.cta-section {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 120px 48px;
+}
+
+.cta-content {
+    max-width: 900px;
+}
+
+.cta-subtitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    opacity: 0.9;
+}
+
+.cta-link {
+    font-size: clamp(36px, 6vw, 76px);
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -1px;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.cta-link:hover {
+    transform: translateX(10px);
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    background-color: var(--primary-blue);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 24px 48px 48px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+
+@media (max-width: 900px) {
+    .hero-section,
+    .about-section,
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .navbar,
+    .hero-left-card,
+    .about-section,
+    .banner-blue,
+    .projects-container,
+    .cta-section,
+    .footer {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-left-card {
+        min-height: 380px;
+    }
+
+    .project-card {
+        margin-bottom: 64px;
+    }
+
+    .media-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}/* ==========================================
+   PÁGINA DE DETALHES DO PROJETO
+========================================== */
+
+/* Header com botão de Voltar */
+.navbar-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 48px;
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--line);
+}
+
+.back-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s;
+}
+
+.back-link:hover {
+    transform: translateX(-4px);
+}
+
+.logo-detail {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+/* Layout Principal do Detalhe */
+.detail-container {
+    padding: 60px 48px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.detail-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+.detail-category {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.detail-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+}
+
+.detail-year {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.detail-description-right p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+/* Estrutura do Carrossel */
+.detail-carousel-section {
+    width: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    max-height: 80vh;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 80vh;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+/* Botões com Setas */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 76, 245, 0.9);
+    color: var(--white);
+    border: none;
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: var(--primary-blue);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+.detail-carousel-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 14px;
+    z-index: 10;
+}
+
+/* Responsividade da Página de Detalhe */
+@media (max-width: 900px) {
+    .navbar-detail,
+    .detail-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .detail-header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .carousel-slide {
+        height: 60vh;
+    }
+}/* ==========================================
+   RODAPÉ — ESPAÇAMENTO DOS LINKS
+========================================== */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 48px;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--line);
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Espaçamento entre os links do rodapé */
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* Ajuste aqui: 24px cria um bom respiro entre os itens */
+}
+
+.footer-links a {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+/* Ajuste para telas de celular */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .footer-links {
+        gap: 16px; /* Espaçamento levemente menor no celular */
+        flex-wrap: wrap;
+    }
+}/* ==========================================
+   LINKS DE REDES NO CABEÇALHO
+========================================== */
+
+.header-socials {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Respiro entre Instagram e Behance */
+}
+
+.header-socials a {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s, opacity 0.2s;
+}
+
+.header-socials a:hover {
+    color: var(--primary-blue);
+    opacity: 0.8;
+}
+
+/* Ajuste Responsivo para Telas Pequenas */
+@media (max-width: 768px) {
+    .header-socials {
+        gap: 12px;
+    }
+    
+    .header-socials a {
+        font-size: 11px;
+    }
+}
